@@ -12,7 +12,7 @@ npm i gforms-submit
 
 ## Usage
 
-Create a new [Google Form](http://forms.google.com), click Preview, use your browser's dev tools (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>J</kbd>) to inspect the DOM, and retrieve the `<form>` action URL and form field `name=` attribute values from your Google Form.
+Create a new [Google Form](http://forms.google.com), click Preview, inspect the DOM, and retrieve the `<form>` action URL and form field `name=` attribute values from your Google Form.
 
 ```js
 import gformsSubmit from "gforms-submit";
