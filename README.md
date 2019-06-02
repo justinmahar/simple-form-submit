@@ -72,7 +72,7 @@ This project uses [`axios`](https://www.npmjs.com/package/axios) to make request
 
 ## TypeScript Support
 
-This project is written in TypeScript. Type definitions are available in `dist/index.d.ts`.
+This project is written in TypeScript and compiled to JavaScript. Type definitions are available in `dist/index.d.ts`.
 
 Form fields are defined as type `GFormField`, like so:
 
