@@ -6,7 +6,7 @@ export type GFormField = {
   value: any;
 };
 
-const submitGForm = (
+const gformsSubmit = (
   gformActionUrl: string,
   formFields: GFormField[] | GFormField,
   handleErrors: boolean = false
@@ -34,4 +34,4 @@ const submitGForm = (
   });
 };
 
-export default submitGForm;
+export default gformsSubmit;
