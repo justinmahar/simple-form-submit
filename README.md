@@ -15,21 +15,25 @@ npm i gforms-submit
 Create a new [Google Form](http://forms.google.com), click Preview, inspect your source, and retrieve the `<form>` action URL and form field `name=` attribute values from your Google Form.
 
 ```js
-import gformsSubmit from "../index";
+import gformsSubmit from "gforms-submit";
 
+// Replace this with your form's action URL
 const gformActionUrl =
   "https://docs.google.com/forms/d/e/abcdefgh12345678-abcdefgh/formResponse";
 
+// Replace the name attribute with your form's
 const emailFormField = {
   nameAttribute: "emailAddress",
   value: "test@example.com"
 };
 
+// Replace the name attribute with your form's
 const messageFormField = {
   nameAttribute: "entry.12345678901",
   value: "Hello! This is my message."
 };
 
+// You can have as many form fields as you'd like!
 const formFields = [emailFormField, messageFormField];
 
 gformsSubmit(gformActionUrl, formFields)
@@ -65,6 +69,22 @@ gformsSubmit(gformActionUrl, formFields, handleErrors)
 ## Axios
 
 This project uses [`axios`](https://www.npmjs.com/package/axios) to make requests.
+
+## TypeScript Support
+
+This project is written in TypeScript. Type definitions are available in `dist/index.d.ts`.
+
+Form fields are defined as type `GFormField`, like so:
+
+```ts
+import gformsSubmit, { GFormField } from "gforms-submit";
+
+const emailFormField: GFormField = {
+  nameAttribute: "emailAddress",
+  value: "test@example.com"
+};
+
+```
 
 ## ISC License
 
