@@ -15,7 +15,7 @@ npm i gforms-submit
 ```js
 import gformsSubmit from "../index";
 
-const gformActionUrl = "https://docs.google.com/forms/d/e/abcdefgh12345678abcdefgh12345678abcdefgh12345678abcdefgh/formResponse";
+const gformActionUrl = "https://docs.google.com/forms/d/e/abcdefgh12345678-abcdefgh/formResponse";
 
 const emailFormField = {
   nameAttribute: "emailAddress",
