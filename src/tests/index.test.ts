@@ -1,16 +1,16 @@
 import gformsSubmit, { GFormField } from "../index";
 
-const formActionUrl =
-  "https://docs.google.com/forms/d/e/abcdefgh12345678abcdefgh12345678abcdefgh12345678abcdefgh/formResponse";
+const gformActionUrl =
+  "https://docs.google.com/forms";
 
 test("it can submit form data for a single form field", () => {
   const emailFormField: GFormField = {
     nameAttribute: "emailAddress",
-    value: "text@example.com"
+    value: "test@example.com"
   };
 
   expect.assertions(1);
-  return gformsSubmit(formActionUrl, emailFormField)
+  return gformsSubmit(gformActionUrl, emailFormField)
     .then(() => {
       expect(true).toBeTruthy();
     })
@@ -26,14 +26,14 @@ test("it can submit form data for an array of form fields", () => {
   };
 
   const messageFormField: GFormField = {
-    nameAttribute: "message",
-    value: "This is a test message. " + new Date()
+    nameAttribute: "entry.12345678901",
+    value: "Hello! This is my message."
   };
 
   const formFields = [emailFormField, messageFormField];
 
   expect.assertions(1);
-  return gformsSubmit(formActionUrl, formFields)
+  return gformsSubmit(gformActionUrl, formFields)
     .then(() => {
       expect(true).toBeTruthy();
     })
@@ -45,17 +45,18 @@ test("it can submit form data for an array of form fields", () => {
 test("it can handle errors when using a proxy", () => {
   const emailFormField: GFormField = {
     nameAttribute: "emailAddress",
-    value: "text@example.com"
+    value: "test@example.com"
   };
+
   const messageFormField: GFormField = {
-    nameAttribute: "message",
-    value: "This is a message. " + new Date()
+    nameAttribute: "entry.12345678901",
+    value: "Hello! This is my message."
   };
 
   const formFields = [emailFormField, messageFormField];
 
   expect.assertions(1);
-  return gformsSubmit(formActionUrl, formFields, true)
+  return gformsSubmit(gformActionUrl, formFields, true)
     .then(() => {
       fail("This should not have succeeded.");
     })

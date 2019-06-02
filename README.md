@@ -12,6 +12,8 @@ npm i gforms-submit
 
 ## Usage
 
+Create a new Google Form, click Preview, inspect your source, and etrieve the `<form>` action URL and form field `name=` attribute values from your Google Form.
+
 ```js
 import gformsSubmit from "../index";
 
@@ -24,8 +26,8 @@ const emailFormField = {
 };
 
 const messageFormField = {
-  nameAttribute: "message",
-  value: "This is a test message."
+  nameAttribute: "entry.12345678901",
+  value: "Hello! This is my message."
 };
 
 const formFields = [emailFormField, messageFormField];
