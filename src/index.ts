@@ -1,14 +1,14 @@
 import Axios from "axios";
 import FormData from "form-data";
 
-export type GFormField = {
+export type GFormData = {
   nameAttribute: string;
   value: any;
 };
 
 const gformsSubmit = (
   gformActionUrl: string,
-  formFields: GFormField[] | GFormField,
+  formFields: GFormData[] | GFormData,
   handleErrors: boolean = false
 ) => {
   return new Promise((resolve, reject) => {
@@ -17,7 +17,7 @@ const gformsSubmit = (
       formFields = [formFields];
     }
     const formData = new FormData();
-    formFields.forEach((formField: GFormField) => {
+    formFields.forEach((formField: GFormData) => {
       formData.append(formField.nameAttribute, formField.value);
     });
     Axios.post(gformActionUrl, formData)
