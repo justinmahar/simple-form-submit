@@ -1,6 +1,6 @@
-export declare type FormField = {
+export declare type GFormData = {
     nameAttribute: string;
     value: any;
 };
-declare const submitForm: (gformActionUrl: string, formFields: FormField | FormField[], handleErrors?: boolean) => Promise<unknown>;
-export default submitForm;
+declare const gformsSubmit: (gformActionUrl: string, gformDatas: GFormData | GFormData[], handleErrors?: boolean) => Promise<unknown>;
+export default gformsSubmit;
