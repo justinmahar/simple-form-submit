@@ -1,10 +1,10 @@
-import gformsSubmit, { GFormField } from "../index";
+import gformsSubmit, { GFormData } from "../index";
 
 const gformActionUrl =
   "https://docs.google.com/forms";
 
 test("it can submit form data for a single form field", () => {
-  const emailFormField: GFormField = {
+  const emailFormField: GFormData = {
     nameAttribute: "emailAddress",
     value: "test@example.com"
   };
@@ -20,12 +20,12 @@ test("it can submit form data for a single form field", () => {
 });
 
 test("it can submit form data for an array of form fields", () => {
-  const emailFormField: GFormField = {
+  const emailFormField: GFormData = {
     nameAttribute: "emailAddress",
     value: "test@example.com"
   };
 
-  const messageFormField: GFormField = {
+  const messageFormField: GFormData = {
     nameAttribute: "entry.12345678901",
     value: "Hello! This is my message."
   };
@@ -43,12 +43,12 @@ test("it can submit form data for an array of form fields", () => {
 });
 
 test("it can handle errors when using a proxy", () => {
-  const emailFormField: GFormField = {
+  const emailFormField: GFormData = {
     nameAttribute: "emailAddress",
     value: "test@example.com"
   };
 
-  const messageFormField: GFormField = {
+  const messageFormField: GFormData = {
     nameAttribute: "entry.12345678901",
     value: "Hello! This is my message."
   };

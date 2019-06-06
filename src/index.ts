@@ -8,25 +8,26 @@ export type GFormData = {
 
 const gformsSubmit = (
   gformActionUrl: string,
-  formFields: GFormData[] | GFormData,
+  gformDatas: GFormData[] | GFormData,
   handleErrors: boolean = false
 ) => {
   return new Promise((resolve, reject) => {
     // Convert to an array if it's a single form field.
-    if (!Array.isArray(formFields)) {
-      formFields = [formFields];
+    if (!Array.isArray(gformDatas)) {
+      gformDatas = [gformDatas];
     }
-    const formData = new FormData();
-    formFields.forEach((formField: GFormData) => {
-      formData.append(formField.nameAttribute, formField.value);
+    const xhrFormData = new FormData();
+    gformDatas.forEach((gformData: GFormData) => {
+      xhrFormData.append(gformData.nameAttribute, gformData.value);
     });
-    Axios.post(gformActionUrl, formData)
+    Axios.post(gformActionUrl, xhrFormData)
       .then(() => {
         resolve();
       })
       .catch(err => {
         if (handleErrors) {
           reject(err);
+          console.log("Error:", err);
         } else {
           resolve();
         }
