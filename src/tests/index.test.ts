@@ -3,14 +3,14 @@ import gformsSubmit, { GFormData } from "../index";
 const gformActionUrl =
   "https://docs.google.com/forms";
 
-test("it can submit form data for a single form field", () => {
-  const emailFormField: GFormData = {
+test("it can submit form data for a single form data", () => {
+  const emailFormData: GFormData = {
     nameAttribute: "emailAddress",
     value: "test@example.com"
   };
 
   expect.assertions(1);
-  return gformsSubmit(gformActionUrl, emailFormField)
+  return gformsSubmit(gformActionUrl, emailFormData)
     .then(() => {
       expect(true).toBeTruthy();
     })
@@ -19,21 +19,21 @@ test("it can submit form data for a single form field", () => {
     });
 });
 
-test("it can submit form data for an array of form fields", () => {
-  const emailFormField: GFormData = {
+test("it can submit form data for an array of form datas", () => {
+  const emailFormData: GFormData = {
     nameAttribute: "emailAddress",
     value: "test@example.com"
   };
 
-  const messageFormField: GFormData = {
+  const messageFormData: GFormData = {
     nameAttribute: "entry.12345678901",
     value: "Hello! This is my message."
   };
 
-  const formFields = [emailFormField, messageFormField];
+  const formDatas = [emailFormData, messageFormData];
 
   expect.assertions(1);
-  return gformsSubmit(gformActionUrl, formFields)
+  return gformsSubmit(gformActionUrl, formDatas)
     .then(() => {
       expect(true).toBeTruthy();
     })
@@ -43,20 +43,20 @@ test("it can submit form data for an array of form fields", () => {
 });
 
 test("it can handle errors when using a proxy", () => {
-  const emailFormField: GFormData = {
+  const emailFormData: GFormData = {
     nameAttribute: "emailAddress",
     value: "test@example.com"
   };
 
-  const messageFormField: GFormData = {
+  const messageFormData: GFormData = {
     nameAttribute: "entry.12345678901",
     value: "Hello! This is my message."
   };
 
-  const formFields = [emailFormField, messageFormField];
+  const formDatas = [emailFormData, messageFormData];
 
   expect.assertions(1);
-  return gformsSubmit(gformActionUrl, formFields, true)
+  return gformsSubmit(gformActionUrl, formDatas, true)
     .then(() => {
       fail("This should not have succeeded.");
     })
