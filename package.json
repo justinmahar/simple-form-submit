@@ -1,6 +1,6 @@
 {
   "name": "gforms-submit",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Submit form data to Google Forms via JavaScript/TypeScript.",
   "homepage": "https://github.com/justinmahar/gforms-submit#readme",
   "main": "./dist/index.js",
