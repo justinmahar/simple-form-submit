@@ -21,22 +21,22 @@ import gformsSubmit from "gforms-submit";
 const gformActionUrl =
   "https://docs.google.com/forms/d/e/abcdefgh12345678-abcdefgh/formResponse";
 
-// Replace the name attribute with your form's
-const emailFormField = {
+// Replace the name attribute with your form field's
+const emailFormData = {
   nameAttribute: "emailAddress",
   value: "test@example.com"
 };
 
-// Replace the name attribute with your form's
-const messageFormField = {
+// Replace the name attribute with your form field's
+const messageFormData = {
   nameAttribute: "entry.12345678901",
   value: "Hello! This is my message."
 };
 
-// You can have as many form fields as you'd like!
-const formFields = [emailFormField, messageFormField];
+// You can have as many form data objects as you'd like!
+const formDatas = [emailFormData, messageFormData];
 
-gformsSubmit(gformActionUrl, formFields)
+gformsSubmit(gformActionUrl, formDatas)
   .then(() => {
     console.log("Sent!");
   })
@@ -57,7 +57,7 @@ You can specify `handleErrors` to turn on request error handling:
 // ...
 const handleErrors = true;
 // Note: This will always fail if you're not using a proxy!
-gformsSubmit(gformActionUrl, formFields, handleErrors)
+gformsSubmit(gformActionUrl, formDatas, handleErrors)
   .then(() => {
     console.log("Sent!");
   })
@@ -74,12 +74,12 @@ This project uses [`axios`](https://www.npmjs.com/package/axios) to make request
 
 This project is written in TypeScript and compiled to JavaScript. Type definitions are available in `dist/index.d.ts`.
 
-Form fields are defined as type `GFormField`, like so:
+Form data is defined as type `GFormData`, like so:
 
 ```ts
-import gformsSubmit, { GFormField } from "gforms-submit";
+import gformsSubmit, { GFormData } from "gforms-submit";
 
-const emailFormField: GFormField = {
+const emailFormData: GFormData = {
   nameAttribute: "emailAddress",
   value: "test@example.com"
 };
