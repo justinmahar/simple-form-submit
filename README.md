@@ -1,6 +1,6 @@
 # form-submit
 
-Submit your form data with a single JavaScript call!
+> Submit your form data with a single JavaScript call!
 
 ```js
   import FormSubmit from "form-submit";
