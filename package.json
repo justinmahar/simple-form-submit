@@ -1,6 +1,6 @@
 {
   "name": "submit-form-simple",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Submit your form data with a simple JavaScript call!",
   "homepage": "https://github.com/justinmahar/submit-form-simple#readme",
   "main": "./dist/index.js",
