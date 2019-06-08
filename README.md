@@ -1,14 +1,14 @@
-# form-submitter
+# submit-form-simple
 
 **Submit your form data with a simple JavaScript call!**
 
 ```js
-  import FormSubmitter from "form-submitter";
+  import SubmitFormSimple from "submit-form-simple";
 
   const formActionUrl = "https://www.example.com/form";
   const formElement = document.getElementById("my-form");
 
-  FormSubmitter.submitForm(formActionUrl, formElement)
+  SubmitFormSimple.submitForm(formActionUrl, formElement)
     .then((response) => {
       console.log("Response:", response);
     })
@@ -27,15 +27,15 @@
 ## Installation
 
 ```bash
-npm i form-submitter
+npm i submit-form-simple
 ```
 
 ## Usage
 
 You can either:
 
-- Submit a `<form>` using `FormSubmitter.submitForm(actionUrl, form)`
-- Submit `FormData` ([see docs](https://developer.mozilla.org/en-US/docs/Web/API/FormData)) using `FormSubmitter.submitFormData(actionUrl, formData)`.
+- Submit a `<form>` using `SubmitFormSimple.submitForm(actionUrl, form)`
+- Submit `FormData` ([see docs](https://developer.mozilla.org/en-US/docs/Web/API/FormData)) using `SubmitFormSimple.submitFormData(actionUrl, formData)`.
 
 Both functions return a Promise so you can handle success/failure cases.
 
@@ -56,7 +56,7 @@ We want to use JavaScript to send data for this simple form when it's submitted:
 We can submit the `<form>` to any URL, like so:
 
 ```js
-import FormSubmitter from "form-submitter";
+import SubmitFormSimple from "submit-form-simple";
 
 const handleSubmit = e => {
   e.preventDefault();
@@ -64,7 +64,7 @@ const handleSubmit = e => {
   const formActionUrl = "https://www.example.com/form";
   const form = document.getElementById("example-form");
 
-  FormSubmitter.submitForm(formActionUrl, form)
+  SubmitFormSimple.submitForm(formActionUrl, form)
     .then(response => {
       console.log("Response:", response);
     })
@@ -80,7 +80,7 @@ You can also submit using `FormData`. For example:
 const formActionUrl = "https://www.example.com/form";
 const formData = new FormData(document.getElementById("example-form"));
 
-FormSubmitter.submitFormData(formActionUrl, formData)
+SubmitFormSimple.submitFormData(formActionUrl, formData)
   .then(response => {
     console.log("Response:", response);
   })
@@ -102,7 +102,7 @@ const fetchOptions = {
   mode: "no-cors"
 };
 
-FormSubmitter.submitForm(formActionUrl, form, "GET", fetchOptions)
+SubmitFormSimple.submitForm(formActionUrl, form, "GET", fetchOptions)
   .then(response => {
     console.log("Response:", response);
   })
