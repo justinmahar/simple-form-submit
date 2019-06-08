@@ -55,7 +55,7 @@ We want to use JavaScript to send data for this simple form when it's submitted:
 </form>
 ```
 
-We can submit the `<form>` to any URL, like so:
+We can submit the `<form>` itself to any URL, like so:
 
 ```js
 import SubmitFormSimple from "submit-form-simple";
@@ -93,7 +93,7 @@ SubmitFormSimple.submitFormData(formActionUrl, formData)
 
 ## Form Method (GET, POST) and Fetch Options
 
-You can specify the method (such as GET or POST) and [Fetch API options](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters) if you'd like. The default method is `POST`.
+You can specify the method (such as `GET` or `POST`) and [Fetch API options](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters) if you'd like. The default method is `POST`.
 
 ```js
 const formActionUrl = "https://www.example.com/form";
