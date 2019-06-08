@@ -22,7 +22,7 @@
 
 - Submits both `<form>` and [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) using the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) with a single JS call.
 - Returns a Promise for handling response or error with `then()` and `catch()`.
-- Customizable form method (default `POST`), with support for additional [Fetch API options](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options).
+- Customizable form method (default `POST`), with support for additional [Fetch API options](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters).
 
 ## Installation
 
@@ -91,7 +91,7 @@ FormSubmit.submitFormData(formActionUrl, formData)
 
 ## Form Method (GET, POST) and Fetch Options
 
-You can specify the method (such as GET or POST) and [Fetch API options](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options) if you'd like. The default method is `POST`.
+You can specify the method (such as GET or POST) and [Fetch API options](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters) if you'd like. The default method is `POST`.
 
 ```js
 const formActionUrl = "https://www.example.com/form";
