@@ -82,7 +82,7 @@ const handleSubmit = e => {
 
 You can also submit using a `FormData` object. This allows you to modify the form data before sending. 
 
-You can either manually build your own `FormData` object, or you can use `new FormData(form)` extract the form data from the form.
+You can use `new FormData(form)` to extract the form data from an existing form. (Or, if you want, you can manually build your own `FormData` object.)
 
 For example:
 
