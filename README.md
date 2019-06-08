@@ -55,7 +55,7 @@ We want to use JavaScript to send data for this simple form when it's submitted:
 </form>
 ```
 
-#### Submitting A `<form>` Element
+#### Submitting using a `<form>` element
 
 We can submit the `<form>` itself to any URL, like so:
 
@@ -78,9 +78,13 @@ const handleSubmit = e => {
 };
 ```
 
-#### Submitting FormData
+#### Submitting using a `FormData` object
 
-You can also submit using `FormData`. For example:
+You can also submit using a `FormData` object. This allows you to modify the form data before sending. 
+
+You can either manually build your own `FormData` object, or you can use `new FormData(form)` extract the form data from the form.
+
+For example:
 
 ```js
 const formActionUrl = "https://www.example.com/form";
