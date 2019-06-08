@@ -1,4 +1,4 @@
-# submit-form-simple
+# submit-form-simple [![npm version](https://badge.fury.io/js/submit-form-simple.svg)](https://badge.fury.io/js/submit-form-simple)
 
 **Submit your form data with a simple JavaScript call!**
 
@@ -80,7 +80,7 @@ const handleSubmit = e => {
 
 #### Submitting using a `FormData` object
 
-You can also submit using a `FormData` object. This allows you to modify the form data before sending. 
+You can also submit using a `FormData` object. This allows you to modify the form data before sending.
 
 You can use `new FormData(form)` to extract the form data from an existing form. (Or, if you want, you can manually build your own `FormData` object.)
 
@@ -90,7 +90,9 @@ For example:
 const formActionUrl = "https://www.example.com/form";
 const formData = new FormData(document.getElementById("example-form"));
 
-// Transform the data if you need here.
+// Transform the data here if you'd like.
+formData.set("email", formData.get("email").toLowerCase());
+formData.append("date", new Date().toString());
 
 SubmitFormSimple.submitFormData(formActionUrl, formData)
   .then(response => {
