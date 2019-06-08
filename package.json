@@ -1,8 +1,8 @@
 {
-  "name": "gforms-submit",
-  "version": "1.0.8",
-  "description": "Submit form data to Google Forms via JavaScript/TypeScript.",
-  "homepage": "https://github.com/justinmahar/gforms-submit#readme",
+  "name": "form-submit",
+  "version": "1.0.1",
+  "description": "Submit your form data with a single JavaScript call!",
+  "homepage": "https://github.com/justinmahar/form-submit#readme",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -14,22 +14,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/justinmahar/gforms-submit.git"
+    "url": "git+https://github.com/justinmahar/form-submit.git"
   },
   "keywords": [
-    "Google Forms",
-    "contact form",
-    "feedback form",
-    "mailing list",
-    "GForms"
+    "form",
+    "submit",
+    "POST"
   ],
   "author": "Justin Mahar <thejustinmahar@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/justinmahar/gforms-submit/issues"
+    "url": "https://github.com/justinmahar/form-submit/issues"
   },
   "dependencies": {
-    "axios": "^0.19.0",
     "form-data": "^2.3.3"
   },
   "devDependencies": {

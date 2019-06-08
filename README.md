@@ -1,89 +1,119 @@
-# GForms Submit
+# form-submit
 
-Submit form data to Google Forms via JavaScript/TypeScript.
+Submit your form data with a single JavaScript call!
 
-This project can be used to build simple serverless contact forms and mailing lists with very little overhead.
+```js
+  import FormSubmit from "form-submit";
+
+  const formActionUrl = "https://www.example.com/form";
+  const formElement = document.getElementById("my-form");
+
+  FormSubmit.submitForm(formActionUrl, formElement)
+    .then((response) => {
+      console.log("Response:", response);
+    })
+    .catch(err => {
+      console.log("Error:", err);
+    });
+  }
+```
+
+### Overview:
+
+- Submits both `<form>` and [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) using the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) with a single JS call.
+- Returns a Promise for handling response or error with `then()` and `catch()`.
+- Customizable form method (default `POST`), with support for additional [Fetch API options](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options).
 
 ## Installation
 
 ```bash
-npm i gforms-submit
+npm i form-submit
 ```
 
 ## Usage
 
-Create a new [Google Form](http://forms.google.com), click Preview, inspect the DOM, and retrieve the `<form>` action URL and form field `name=` attribute values from your Google Form.
+You can either:
+
+- Submit a `<form>` using `FormSubmit.submitForm(actionUrl, form)`
+- Submit `FormData` ([see docs](https://developer.mozilla.org/en-US/docs/Web/API/FormData)) using `FormSubmit.submitFormData(actionUrl, formData)`.
+
+Both functions return a Promise so you can handle success/failure cases.
+
+This library uses the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) to make requests.
+
+### Example
+
+We want to use JavaScript to send data for this simple form when it's submitted:
+
+```html
+<form id="example-form" onSubmit="handleSubmit(e)">
+  <div>Email: <input name="email" /></div>
+  <div>Message: <input name="message" /></div>
+  <button>Send</button>
+</form>
+```
+
+We can submit the `<form>` to any URL, like so:
 
 ```js
-import gformsSubmit from "gforms-submit";
+import FormSubmit from "form-submit";
 
-// Replace this with your form's action URL
-const gformActionUrl =
-  "https://docs.google.com/forms/d/e/abcdefgh12345678-abcdefgh/formResponse";
+const handleSubmit = e => {
+  e.preventDefault();
 
-// Replace the name attribute with your form field's
-const emailFormData = {
-  nameAttribute: "emailAddress",
-  value: "test@example.com"
+  const formActionUrl = "https://www.example.com/form";
+  const form = document.getElementById("example-form");
+
+  FormSubmit.submitForm(formActionUrl, form)
+    .then(response => {
+      console.log("Response:", response);
+    })
+    .catch(err => {
+      console.log("Error:", err);
+    });
 };
+```
 
-// Replace the name attribute with your form field's
-const messageFormData = {
-  nameAttribute: "entry.12345678901",
-  value: "Hello! This is my message."
-};
+You can also submit using `FormData`. For example:
 
-// You can have as many form data objects as you'd like!
-const formDatas = [emailFormData, messageFormData];
+```js
+const formActionUrl = "https://www.example.com/form";
+const formData = new FormData(document.getElementById("example-form"));
 
-gformsSubmit(gformActionUrl, formDatas)
-  .then(() => {
-    console.log("Sent!");
+FormSubmit.submitFormData(formActionUrl, formData)
+  .then(response => {
+    console.log("Response:", response);
   })
   .catch(err => {
-    console.log(err);
+    console.log("Error:", err);
   });
 ```
 
-## CORS
+## Form Method (GET, POST) and Fetch Options
 
-Responses from Google's servers are blocked by modern browsers due to CORS restrictions. Because of this, there's no way to know whether or not the form submission succeeded, so all submissions are treated as successful. You will see a CORS error in the console, but the form will still receive the submission.
-
-If you use/build a CORS proxy, you can turn on error handling for your request to the proxy server. Error responses can then be handled as you see fit.
-
-You can specify `handleErrors` to turn on request error handling:
+You can specify the method (such as GET or POST) and [Fetch API options](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options) if you'd like. The default method is `POST`.
 
 ```js
-// ...
-const handleErrors = true;
-// Note: This will always fail if you're not using a proxy!
-gformsSubmit(gformActionUrl, formDatas, handleErrors)
-  .then(() => {
-    console.log("Sent!");
+const formActionUrl = "https://www.example.com/form";
+const form = document.getElementById("example-form");
+
+// You can specify any Fetch API options here.
+const fetchOptions = {
+  mode: "no-cors"
+};
+
+FormSubmit.submitForm(formActionUrl, form, "GET", fetchOptions)
+  .then(response => {
+    console.log("Response:", response);
   })
   .catch(err => {
-    console.log(err);
+    console.log("Error:", err);
   });
 ```
-
-## Axios
-
-This project uses [`axios`](https://www.npmjs.com/package/axios) to make requests.
 
 ## TypeScript Support
 
 This project is written in TypeScript and compiled to JavaScript. Type definitions are available in `dist/index.d.ts`.
-
-Form data is defined as type `GFormData`, like so:
-
-```ts
-import gformsSubmit, { GFormData } from "gforms-submit";
-
-const emailFormData: GFormData = {
-  nameAttribute: "emailAddress",
-  value: "test@example.com"
-};
-```
 
 ## ISC License
 

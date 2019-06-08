@@ -1,38 +1,50 @@
-import Axios from "axios";
 import FormData from "form-data";
 
-export type GFormData = {
-  nameAttribute: string;
-  value: any;
-};
+const DEFAULT_METHOD: string = "POST";
 
-const gformsSubmit = (
-  gformActionUrl: string,
-  gformDatas: GFormData[] | GFormData,
-  handleErrors: boolean = false
-) => {
-  return new Promise((resolve, reject) => {
-    // Convert to an array if it's a single form field.
-    if (!Array.isArray(gformDatas)) {
-      gformDatas = [gformDatas];
-    }
-    const xhrFormData = new FormData();
-    gformDatas.forEach((gformData: GFormData) => {
-      xhrFormData.append(gformData.nameAttribute, gformData.value);
-    });
-    Axios.post(gformActionUrl, xhrFormData)
-      .then(() => {
-        resolve();
-      })
-      .catch(err => {
-        if (handleErrors) {
+export const submitFormData = (
+  formActionUrl: string,
+  formData: FormData,
+  method: string = DEFAULT_METHOD,
+  fetchOptions: any = {}
+): Promise<any> => {
+  return new Promise(
+    (
+      resolve: (value?: {} | PromiseLike<{}> | undefined) => void,
+      reject: (reason?: any) => void
+    ) => {
+      const optionsToUse = {
+        method: method,
+        body: formData,
+        ...fetchOptions
+      };
+
+      fetch(formActionUrl, optionsToUse)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(err => {
           reject(err);
-          console.log("Error:", err);
-        } else {
-          resolve();
-        }
-      });
-  });
+        });
+    }
+  );
 };
 
-export default gformsSubmit;
+export const submitForm = (
+  formActionUrl: string,
+  form: HTMLFormElement,
+  method: string = DEFAULT_METHOD,
+  fetchOptions: any = {}
+): Promise<any> => {
+  return submitFormData(
+    formActionUrl,
+    new FormData(form),
+    method,
+    fetchOptions
+  );
+};
+
+export default {
+  submitFormData: submitFormData,
+  submitForm: submitForm
+};
