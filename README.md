@@ -35,7 +35,7 @@ npm i submit-form-simple
 You can either:
 
 - Submit a `<form>` using `SubmitFormSimple.submitForm(actionUrl, form)`
-- Submit `FormData` ([see docs](https://developer.mozilla.org/en-US/docs/Web/API/FormData)) using `SubmitFormSimple.submitFormData(actionUrl, formData)`.
+- Submit `FormData` ([see docs](https://developer.mozilla.org/en-US/docs/Web/API/FormData)) using `SubmitFormSimple.submitFormData(actionUrl, formData)`. This is useful if you want to build form data manually or transform the form data before sending.
 
 Both functions return a Promise so you can handle success/failure cases.
 
