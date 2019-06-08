@@ -1,9 +1,9 @@
-# form-submit
+# formsubmit
 
 > Submit your form data with a single JavaScript call!
 
 ```js
-  import FormSubmit from "form-submit";
+  import FormSubmit from "formsubmit";
 
   const formActionUrl = "https://www.example.com/form";
   const formElement = document.getElementById("my-form");
@@ -27,7 +27,7 @@
 ## Installation
 
 ```bash
-npm i form-submit
+npm i formsubmit
 ```
 
 ## Usage
@@ -56,7 +56,7 @@ We want to use JavaScript to send data for this simple form when it's submitted:
 We can submit the `<form>` to any URL, like so:
 
 ```js
-import FormSubmit from "form-submit";
+import FormSubmit from "formsubmit";
 
 const handleSubmit = e => {
   e.preventDefault();

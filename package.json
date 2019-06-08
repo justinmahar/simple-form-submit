@@ -1,8 +1,8 @@
 {
-  "name": "form-submit",
+  "name": "formsubmit",
   "version": "1.0.1",
   "description": "Submit your form data with a single JavaScript call!",
-  "homepage": "https://github.com/justinmahar/form-submit#readme",
+  "homepage": "https://github.com/justinmahar/formsubmit#readme",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/justinmahar/form-submit.git"
+    "url": "git+https://github.com/justinmahar/formsubmit.git"
   },
   "keywords": [
     "form",
@@ -24,7 +24,7 @@
   "author": "Justin Mahar <thejustinmahar@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/justinmahar/form-submit/issues"
+    "url": "https://github.com/justinmahar/formsubmit/issues"
   },
   "dependencies": {
     "form-data": "^2.3.3"
