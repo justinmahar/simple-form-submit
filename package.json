@@ -1,7 +1,7 @@
 {
   "name": "formsubmit",
   "version": "1.0.1",
-  "description": "Submit your form data with a single JavaScript call!",
+  "description": "Submit your form data with a simple JavaScript call!",
   "homepage": "https://github.com/justinmahar/formsubmit#readme",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
