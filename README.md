@@ -45,7 +45,7 @@ This library uses the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/A
 
 We want to use JavaScript to send data for this simple form when it's submitted:
 
-![Example Form](https://raw.githubusercontent.com/justinmahar/form-submit-simple/master/images/example-form.png)
+![Example Form](https://raw.githubusercontent.com/justinmahar/submit-form-simple/master/images/example-form.png)
 
 ```html
 <form id="example-form" onSubmit="handleSubmit(e)">
