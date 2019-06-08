@@ -55,6 +55,8 @@ We want to use JavaScript to send data for this simple form when it's submitted:
 </form>
 ```
 
+#### Submitting A `<form>` Element
+
 We can submit the `<form>` itself to any URL, like so:
 
 ```js
@@ -75,6 +77,8 @@ const handleSubmit = e => {
     });
 };
 ```
+
+#### Submitting FormData
 
 You can also submit using `FormData`. For example:
 
