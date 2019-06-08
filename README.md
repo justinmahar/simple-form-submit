@@ -21,7 +21,7 @@
 ### Overview:
 
 - Submits both `<form>` and [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) using the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) with a single JS call.
-- Returns a Promise for handling response or error with `then()` and `catch()`.
+- Returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) for handling response or error with `then()` and `catch()`.
 - Customizable form method (default `POST`), with support for additional [Fetch API options](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters).
 
 ## Installation
