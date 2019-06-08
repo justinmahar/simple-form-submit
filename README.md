@@ -86,6 +86,8 @@ You can also submit using `FormData`. For example:
 const formActionUrl = "https://www.example.com/form";
 const formData = new FormData(document.getElementById("example-form"));
 
+// Transform the data if you need here.
+
 SubmitFormSimple.submitFormData(formActionUrl, formData)
   .then(response => {
     console.log("Response:", response);
