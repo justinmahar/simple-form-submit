@@ -16,12 +16,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var form_data_1 = __importDefault(require("form-data"));
 var DEFAULT_METHOD = "POST";
-exports.submitFormData = function (formActionUrl, formData, method, fetchOptions) {
-    if (method === void 0) { method = DEFAULT_METHOD; }
-    if (fetchOptions === void 0) { fetchOptions = {}; }
+exports.submitFormData = function (formActionUrl, formData, fetchRequestInit) {
+    if (fetchRequestInit === void 0) { fetchRequestInit = {}; }
     return new Promise(function (resolve, reject) {
-        var optionsToUse = __assign({ method: method, body: formData }, fetchOptions);
-        fetch(formActionUrl, optionsToUse)
+        var mergedFetchRequestInit = __assign({ body: formData, method: DEFAULT_METHOD }, fetchRequestInit);
+        fetch(formActionUrl, mergedFetchRequestInit)
             .then(function (response) {
             resolve(response);
         })
@@ -30,10 +29,9 @@ exports.submitFormData = function (formActionUrl, formData, method, fetchOptions
         });
     });
 };
-exports.submitForm = function (formActionUrl, form, method, fetchOptions) {
-    if (method === void 0) { method = DEFAULT_METHOD; }
-    if (fetchOptions === void 0) { fetchOptions = {}; }
-    return exports.submitFormData(formActionUrl, new form_data_1.default(form), method, fetchOptions);
+exports.submitForm = function (formActionUrl, form, fetchRequestInit) {
+    if (fetchRequestInit === void 0) { fetchRequestInit = {}; }
+    return exports.submitFormData(formActionUrl, new form_data_1.default(form), fetchRequestInit);
 };
 exports.default = {
     submitFormData: exports.submitFormData,
