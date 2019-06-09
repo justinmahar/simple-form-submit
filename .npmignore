@@ -1,4 +1,4 @@
-lib/
+src/
 dist/test.d.ts
 dist/test.js
 images/
