@@ -5,21 +5,20 @@ const DEFAULT_METHOD: string = "POST";
 export const submitFormData = (
   formActionUrl: string,
   formData: FormData,
-  method: string = DEFAULT_METHOD,
-  fetchOptions: any = {}
+  fetchRequestInit: RequestInit = {}
 ): Promise<any> => {
   return new Promise(
     (
       resolve: (value?: {} | PromiseLike<{}> | undefined) => void,
       reject: (reason?: any) => void
     ) => {
-      const optionsToUse = {
-        method: method,
+      const mergedFetchRequestInit: any = {
         body: formData,
-        ...fetchOptions
+        method: DEFAULT_METHOD,
+        ...fetchRequestInit
       };
 
-      fetch(formActionUrl, optionsToUse)
+      fetch(formActionUrl, mergedFetchRequestInit)
         .then(response => {
           resolve(response);
         })
@@ -33,15 +32,9 @@ export const submitFormData = (
 export const submitForm = (
   formActionUrl: string,
   form: HTMLFormElement,
-  method: string = DEFAULT_METHOD,
-  fetchOptions: any = {}
+  fetchRequestInit: RequestInit = {}
 ): Promise<any> => {
-  return submitFormData(
-    formActionUrl,
-    new FormData(form),
-    method,
-    fetchOptions
-  );
+  return submitFormData(formActionUrl, new FormData(form), fetchRequestInit);
 };
 
 export default {
