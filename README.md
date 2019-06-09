@@ -1,14 +1,14 @@
-# submit-form-simple [![npm version](https://badge.fury.io/js/submit-form-simple.svg)](https://badge.fury.io/js/submit-form-simple)
+# simple-form-submit [![npm version](https://badge.fury.io/js/simple-form-submit.svg)](https://badge.fury.io/js/simple-form-submit)
 
-**Submit your form data with a simple JavaScript call!**
+**Submit your form data with a simple JavaScript call.**
 
 ```js
-  import SubmitFormSimple from "submit-form-simple";
+  import SimpleFormSubmit from "simple-form-submit";
 
   const formActionUrl = "https://www.example.com/form";
   const formElement = document.getElementById("my-form");
 
-  SubmitFormSimple.submitForm(formActionUrl, formElement)
+  SimpleFormSubmit.submitForm(formActionUrl, formElement)
     .then((response) => {
       console.log("Response:", response);
     })
@@ -27,15 +27,15 @@
 ## Installation
 
 ```bash
-npm i submit-form-simple
+npm i simple-form-submit
 ```
 
 ## Usage
 
 You can either:
 
-- Submit a `<form>` using `SubmitFormSimple.submitForm(actionUrl, form)`
-- Submit `FormData` ([see docs](https://developer.mozilla.org/en-US/docs/Web/API/FormData)) using `SubmitFormSimple.submitFormData(actionUrl, formData)`. This is useful if you want to build form data manually or transform the form data before sending.
+- Submit a `<form>` using `SimpleFormSubmit.submitForm(actionUrl, form)`
+- Submit `FormData` ([see docs](https://developer.mozilla.org/en-US/docs/Web/API/FormData)) using `SimpleFormSubmit.submitFormData(actionUrl, formData)`. This is useful if you want to build form data manually or transform the form data before sending.
 
 Both functions return a Promise so you can handle success/failure cases.
 
@@ -45,7 +45,7 @@ This library uses the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/A
 
 We want to use JavaScript to send data for this simple form when it's submitted:
 
-![Example Form](https://raw.githubusercontent.com/justinmahar/submit-form-simple/master/images/example-form.png)
+![Example Form](https://raw.githubusercontent.com/justinmahar/simple-form-submit/master/images/example-form.png)
 
 ```html
 <form id="example-form" onSubmit="handleSubmit(e)">
@@ -60,7 +60,7 @@ We want to use JavaScript to send data for this simple form when it's submitted:
 We can submit the `<form>` itself to any URL, like so:
 
 ```js
-import SubmitFormSimple from "submit-form-simple";
+import SimpleFormSubmit from "simple-form-submit";
 
 const handleSubmit = e => {
   e.preventDefault();
@@ -68,7 +68,7 @@ const handleSubmit = e => {
   const formActionUrl = "https://www.example.com/form";
   const form = document.getElementById("example-form");
 
-  SubmitFormSimple.submitForm(formActionUrl, form)
+  SimpleFormSubmit.submitForm(formActionUrl, form)
     .then(response => {
       console.log("Response:", response);
     })
@@ -94,7 +94,7 @@ const formData = new FormData(document.getElementById("example-form"));
 formData.set("email", formData.get("email").toLowerCase());
 formData.append("date", new Date().toString());
 
-SubmitFormSimple.submitFormData(formActionUrl, formData)
+SimpleFormSubmit.submitFormData(formActionUrl, formData)
   .then(response => {
     console.log("Response:", response);
   })
@@ -116,7 +116,7 @@ const fetchOptions = {
   mode: "no-cors"
 };
 
-SubmitFormSimple.submitForm(formActionUrl, form, "GET", fetchOptions)
+SimpleFormSubmit.submitForm(formActionUrl, form, "GET", fetchOptions)
   .then(response => {
     console.log("Response:", response);
   })
