@@ -17,9 +17,14 @@
     "url": "git+https://github.com/justinmahar/simple-form-submit.git"
   },
   "keywords": [
+    "simple",
     "form",
     "submit",
-    "POST"
+    "forms",
+    "FormData",
+    "POST",
+    "GET",
+    "fetch"
   ],
   "author": "Justin Mahar <thejustinmahar@gmail.com>",
   "license": "ISC",
