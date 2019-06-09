@@ -22,7 +22,7 @@
 
 - Submits both `<form>` and [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) using the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) with a single JS call.
 - Returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) for handling response or error with `then()` and `catch()`.
-- Customizable form method (default `POST`), with support for additional [Fetch API options](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters).
+- Support for additional [Fetch API options](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters), such as form method (`POST`, `GET`), headers, CORS modes, etc.
 
 ## Installation
 
@@ -103,9 +103,9 @@ SimpleFormSubmit.submitFormData(formActionUrl, formData)
   });
 ```
 
-## Form Method (GET, POST) and Fetch Options
+## Fetch Options
 
-You can specify the method (such as `GET` or `POST`) and [Fetch API options](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters) if you'd like. The default method is `POST`.
+You can specify the method (`GET` or `POST`), mode (such as `no-cors`), headers, and other [Fetch API options](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters) if you'd like. The default method is `POST`.
 
 ```js
 const formActionUrl = "https://www.example.com/form";
@@ -114,9 +114,11 @@ const form = document.getElementById("example-form");
 // You can specify any Fetch API options here.
 const fetchOptions = {
   mode: "no-cors"
+  // method: "GET",
+  //...
 };
 
-SimpleFormSubmit.submitForm(formActionUrl, form, "GET", fetchOptions)
+SimpleFormSubmit.submitForm(formActionUrl, form, fetchOptions)
   .then(response => {
     console.log("Response:", response);
   })
