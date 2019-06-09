@@ -22,7 +22,7 @@
 
 - Submits both `<form>` and [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) using the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) with a single JS call.
 - Returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) for handling response or error with `then()` and `catch()`.
-- Support for additional [Fetch API options](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters), such as form method (`POST`, `GET`), headers, CORS modes, etc.
+- Support for additional [Fetch API options](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters), such as form method (`POST`, `GET`), headers, CORS modes, etc. Defaults to `POST`.
 
 ## Installation
 
@@ -113,9 +113,9 @@ const form = document.getElementById("example-form");
 
 // You can specify any Fetch API options here.
 const fetchOptions = {
-  mode: "no-cors"
   // method: "GET",
-  //...
+  // mode: "no-cors",
+  // ...
 };
 
 SimpleFormSubmit.submitForm(formActionUrl, form, fetchOptions)
