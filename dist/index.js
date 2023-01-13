@@ -1,39 +1,17 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var form_data_1 = __importDefault(require("form-data"));
-var DEFAULT_METHOD = "POST";
-exports.submitFormData = function (formActionUrl, formData, fetchRequestInit) {
-    if (fetchRequestInit === void 0) { fetchRequestInit = {}; }
-    return new Promise(function (resolve, reject) {
-        var mergedFetchRequestInit = __assign({ body: formData, method: DEFAULT_METHOD }, fetchRequestInit);
-        fetch(formActionUrl, mergedFetchRequestInit)
-            .then(function (response) {
-            resolve(response);
-        })
-            .catch(function (err) {
-            reject(err);
-        });
-    });
-};
-exports.submitForm = function (formActionUrl, form, fetchRequestInit) {
-    if (fetchRequestInit === void 0) { fetchRequestInit = {}; }
-    return exports.submitFormData(formActionUrl, new form_data_1.default(form), fetchRequestInit);
-};
-exports.default = {
-    submitFormData: exports.submitFormData,
-    submitForm: exports.submitForm
-};
+__exportStar(require("./components/Example"), exports);

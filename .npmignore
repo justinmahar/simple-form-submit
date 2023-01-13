@@ -1,4 +1,15 @@
-src/
-dist/test.d.ts
-dist/test.js
-images/
+# Dirs
+.github
+.storybook
+node_modules
+src
+storybook-static
+# Files
+.eslintignore
+.eslintrc
+.gitattributes
+.gitignore
+.npmignore
+jest.config.js
+package-lock.json
+tsconfig.json

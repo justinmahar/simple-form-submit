@@ -1,43 +1,29 @@
-import FormData from "form-data";
+import FormData from 'form-data';
 
-const DEFAULT_METHOD: string = "POST";
+export const DEFAULT_METHOD = 'POST';
 
 export const submitFormData = (
   formActionUrl: string,
   formData: FormData,
-  fetchRequestInit: RequestInit = {}
-): Promise<any> => {
-  return new Promise(
-    (
-      resolve: (value?: {} | PromiseLike<{}> | undefined) => void,
-      reject: (reason?: any) => void
-    ) => {
-      const mergedFetchRequestInit: any = {
-        body: formData,
-        method: DEFAULT_METHOD,
-        ...fetchRequestInit
-      };
-
-      fetch(formActionUrl, mergedFetchRequestInit)
-        .then(response => {
-          resolve(response);
-        })
-        .catch(err => {
-          reject(err);
-        });
-    }
-  );
+  fetchRequestInit: RequestInit = {},
+): Promise<Response> => {
+  return fetch(formActionUrl, {
+    // Fetch can accept FormData as a body. See: https://javascript.info/formdata
+    body: formData as any,
+    method: DEFAULT_METHOD,
+    ...fetchRequestInit,
+  });
 };
 
 export const submitForm = (
   formActionUrl: string,
   form: HTMLFormElement,
-  fetchRequestInit: RequestInit = {}
-): Promise<any> => {
+  fetchRequestInit: RequestInit = {},
+): Promise<Response> => {
   return submitFormData(formActionUrl, new FormData(form), fetchRequestInit);
 };
 
 export default {
-  submitFormData: submitFormData,
-  submitForm: submitForm
+  submitFormData,
+  submitForm,
 };
