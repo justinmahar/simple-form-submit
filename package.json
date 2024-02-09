@@ -42,8 +42,13 @@
     "form-data": "^4.0.0"
   },
   "devDependencies": {
+    "@storybook/addon-docs": "^7.6.12",
     "@storybook/addon-essentials": "^7.6.12",
+    "@storybook/addon-viewport": "^7.6.12",
+    "@storybook/blocks": "^7.6.12",
     "@storybook/react": "^7.6.12",
+    "@storybook/react-webpack5": "^7.6.12",
+    "@types/react": "^18.2.53",
     "@typescript-eslint/eslint-plugin": "^6.20.0",
     "@typescript-eslint/parser": "^6.20.0",
     "eslint": "^8.56.0",
@@ -58,15 +63,10 @@
     "react-dom": "^18.2.0",
     "react-html-props": "^2.0.3",
     "react-markdown": "^8.0.3",
-    "replace-in-file": "^7.1.0",
-    "typescript": "^5.3.3",
-    "webpack": "^5.90.1",
-    "@storybook/addon-docs": "^7.6.12",
-    "@storybook/addon-viewport": "^7.6.12",
-    "@storybook/blocks": "^7.6.12",
-    "@storybook/react-webpack5": "^7.6.12",
-    "@types/react": "^18.2.53",
     "remark-gfm": "^3.0.1",
-    "storybook": "^7.6.12"
+    "replace-in-file": "^7.1.0",
+    "storybook": "^7.6.12",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.1"
   }
 }
