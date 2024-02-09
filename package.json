@@ -1,6 +1,6 @@
 {
   "name": "simple-form-submit",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "coreVersion": "3.0.9",
   "author": "Justin Mahar <contact@justinmahar.com>",
   "description": "Submit your form data with a simple JavaScript call.",
