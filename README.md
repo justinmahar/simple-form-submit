@@ -204,4 +204,4 @@ If you found this project helpful, let the community know by giving it a [star](
 
 ## License
 
-See [LICENSE.md](https://justinmahar.github.io/simple-form-submit/?path=/story/license--page).
+See [LICENSE.md](https://justinmahar.github.io/simple-form-submit/?path=/docs/license--docs).
