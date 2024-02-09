@@ -1,7 +1,7 @@
 {
   "name": "simple-form-submit",
   "version": "1.1.6",
-  "coreVersion": "3.0.7",
+  "coreVersion": "3.0.9",
   "author": "Justin Mahar <contact@justinmahar.com>",
   "description": "Submit your form data with a simple JavaScript call.",
   "homepage": "https://justinmahar.github.io/simple-form-submit/",
@@ -57,7 +57,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.15",
-    "lockblocks": "^1.1.4",
+    "lockblocks": "^1.1.8",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
